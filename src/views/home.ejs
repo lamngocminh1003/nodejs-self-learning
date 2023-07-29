@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <script>
+    $(document).ready(function () {
+      $(".btnDelete").click(function () {
+        const id = $(this).attr("data-id");
+        if (confirm(`Are you sure to delete this user, id = ${id}`)) {
+          $.ajax({
+            url: `${window.location.origin}/delete`,
+            method: "POST",
+            success: (result) => {
+              console.log(result);
+              $(this).closest("tr").remove();
+            },
+            error: function (error) {
+              console.log(">>> ajax error: ", error);
+            },
+          });
+        } else {
+          // Do nothing!
+        }
+      });
+    });
+  </script>
+  <body>
+    <div class="topnav">
+      <a class="active" href="/">Home</a>
+      <a href="/create">Create User</a>
+    </div>
+    <div class="w3-container">
+      <h3 class="title-home">List users</h3>
+      <table class="w3-table-all w3-hoverable">
+        <thead>
+          <tr class="w3-light-green">
+            <th>ID</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <!--c1: sd for-->
+        <!-- <% for (let i = 0; i < listUsers.length; i++) { %>
+        <tr>
+          <td><%= listUsers[i].id %></td>
+          <td><%= listUsers[i].email %></td>
+          <td><%= listUsers[i].name %></td>
+          <td><%= listUsers[i].city %></td>
+          <td class="action-btn">
+            <button class="w3-btn w3-blue"><i class="fas fa-edit"></i></button>
+            <button class="w3-btn w3-red"><i class="fas fa-trash"></i></button>
+          </td>
+        </tr>
+        <% } %> -->
+        <!--c2: sd forEach-->
+        <% listUsers.forEach(function(user,index) { %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.email %></td>
+          <td><%= user.name %></td>
+          <td><%= user.city %></td>
+          <td class="action-btn">
+            <a href="/edit/<%= user.id %>" class="w3-btn w3-blue"
+              ><i class="fas fa-edit"></i
+            ></a>
+            <!-- <form action="delete-user/<%= user.id %>" method="POST">
+              <button class="w3-btn w3-red">
+                <i class="fas fa-trash"></i>
+              </button>
+            </form> -->
+            <button class="btnDelete w3-btn w3-red" data-id="<%= user.id %>">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
+  </body>
+</html>

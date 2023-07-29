@@ -1,4 +1,126 @@
-.img{
-    width: 100%;
-    height: auto;
+.img {
+  width: 100%;
+  height: auto;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.form {
+  width: fit-content;
+  margin: 50px auto 0 auto;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh; */
+}
+.fieldset {
+  padding: 10px 20px;
+  width: fit-content;
+  border: 2px solid #063610;
+  border-radius: 5px;
+  color: #063610;
+}
+.title {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+}
+.input {
+  margin: 10px 0;
+}
+.title-item {
+  width: 50px;
+  display: inline-block;
+}
+.input-item {
+  padding: 5px;
+  font-style: 16px;
+}
+input:focus {
+  outline: none;
+}
+.btn {
+  width: fit-content;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #f1e8e8;
+}
+.btn-add {
+  background-color: #04a226;
+  cursor: pointer;
+  border-color: #04a226;
+  border-radius: 2px;
+}
+.btn-add:hover {
+  background-color: #10882a;
+  border-color: #10882a;
+  color: #ccc0c0;
+}
+.add-user {
+  width: 230px;
+  text-align: center;
+}
+.title-home {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  color: #04a226;
+}
+.w3-table-all tr:nth-child(odd):hover {
+  background-color: #96f399;
+}
+.w3-table-all tr:nth-child(even):hover {
+  background-color: #7ed981;
+}
+.w3-blue:hover {
+  background-color: #3353d2 !important;
+  color: #ccc0c0 !important;
+}
+.w3-red:hover {
+  background-color: crimson !important;
+  color: #ccc0c0 !important;
+}
+.w3-btn {
+  border-radius: 2px;
+}
+.action-btn {
+  display: flex !important;
+  gap: 10px;
+}
+.w3-light-green {
+  color: #000;
+  background-color: #7ed981;
+}
+.hidden {
+  display: none;
 }
